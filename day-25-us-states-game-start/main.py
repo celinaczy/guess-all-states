@@ -46,11 +46,9 @@ while len(correct_guesses) < 50:
         writer.write(answer, align=ALIGNMENT, font=FONT)
 
 
-for i in range(len(correct_guesses)):
-    states_list.remove(correct_guesses[i])
-print(states_list)
+missing_states = [i for i in states_list if i not in correct_guesses]
 
-data_frame = pd.DataFrame(states_list)
+data_frame = pd.DataFrame(missing_states)
 print(data_frame)
 data_frame.to_csv("missing_states.csv")
 screen.exitonclick()
